@@ -5,7 +5,6 @@ A secure, peer-to-peer file sharing application built with React, TypeScript, an
 ## Features
 
 - 🔒 Secure P2P file transfer using WebRTC
-- 📁 Multiple file uploads (up to 5 files)
 - 💨 Fast direct transfers between peers
 - 🎯 No server storage - files transfer directly between browsers
 - 🔍 File preview before download
@@ -22,10 +21,10 @@ A secure, peer-to-peer file sharing application built with React, TypeScript, an
 
 ```bash
 # Clone the repository
-git clone [your-repo-url]
+git clone https://github.com/ompathak2004/PeerDrop.git
 
 # Navigate to project directory
-cd fileSharing
+cd PeerDrop
 
 # Install dependencies
 npm install
@@ -52,7 +51,6 @@ Visit `http://localhost:5173` in your browser.
    - Connected peers will appear in the "Connected Peers" list
 
 3. **Sending Files**
-   - Select up to 5 files (max 100MB each)
    - Choose a connected peer from the list
    - Click "Send" to initiate transfer
 
@@ -72,8 +70,6 @@ Visit `http://localhost:5173` in your browser.
 
 ## File Size Limits
 
-- Individual file: 100MB
-- Maximum files per transfer: 5
 - Supported file types: All
 
 ## Development Commands

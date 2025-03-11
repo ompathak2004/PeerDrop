@@ -1,54 +1,125 @@
-# React + TypeScript + Vite
+# PeerDrop - P2P File Sharing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A secure, peer-to-peer file sharing application built with React, TypeScript, and WebRTC.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔒 Secure P2P file transfer using WebRTC
+- 📁 Multiple file uploads (up to 5 files)
+- 💨 Fast direct transfers between peers
+- 🎯 No server storage - files transfer directly between browsers
+- 🔍 File preview before download
+- 📱 Responsive design with Tailwind CSS
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js 16.x or higher
+- npm 7.x or higher
+
+### Installation
+
+```bash
+# Clone the repository
+git clone [your-repo-url]
+
+# Navigate to project directory
+cd fileSharing
+
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+# Start development server
+npm run dev
 ```
+
+Visit `http://localhost:5173` in your browser.
+
+## Usage
+
+1. **Start a Session**
+   - Click "Start Session" to get your unique peer ID
+   - Your ID will be in format: `adjective-noun-number` (e.g., `swift-phoenix-123`)
+
+2. **Connect with Peers**
+   - Share your ID with other users
+   - Enter another user's ID to connect
+   - Connected peers will appear in the "Connected Peers" list
+
+3. **Sending Files**
+   - Select up to 5 files (max 100MB each)
+   - Choose a connected peer from the list
+   - Click "Send" to initiate transfer
+
+4. **Receiving Files**
+   - When someone sends you files, you'll see a confirmation dialog
+   - Preview file details before accepting
+   - Choose to accept or reject the transfer
+   - Files download automatically after accepting
+
+## Technical Stack
+
+- **Frontend**: React + TypeScript
+- **State Management**: Redux Toolkit
+- **Styling**: Tailwind CSS + Ant Design
+- **P2P**: PeerJS (WebRTC)
+- **Build Tool**: Vite
+
+## File Size Limits
+
+- Individual file: 100MB
+- Maximum files per transfer: 5
+- Supported file types: All
+
+## Development Commands
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
+```
+
+## Project Structure
+
+```
+fileSharing/
+├── src/
+│   ├── helpers/        # Utility functions and hooks
+│   ├── store/          # Redux store configuration
+│   │   ├── peer/       # Peer connection state
+│   │   └── connection/ # Connection management
+│   ├── App.tsx        # Main application component
+│   └── main.tsx       # Application entry point
+└── package.json
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- PeerJS for WebRTC implementation
+- Tailwind CSS for styling
+- Ant Design for UI components

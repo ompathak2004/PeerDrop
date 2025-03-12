@@ -16,7 +16,7 @@ export interface FileData {
 
 export interface Data {
     dataType: DataType;
-    files: FileData[];  // Changed from file to files;
+    files: FileData[]; 
     filename?: string;
 }
 let peer: Peer | undefined

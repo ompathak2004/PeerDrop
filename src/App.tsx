@@ -9,8 +9,8 @@ import { DataType, FileData, PeerConnection } from './helpers/peer';
 
 
 export const App: React.FC = () => {
-    const peer = useAppSelector((state) => state.peer);
-    const connection = useAppSelector((state) => state.connection);
+    const peer : any = useAppSelector((state) => state.peer);
+    const connection = useAppSelector((state: { connection: any }) => state.connection);
     const dispatch = useAppDispatch();
     const [fileList, setFileList] = useAsyncState([] as UploadFile[]);
     const [sendLoading, setSendLoading] = useAsyncState(false);
@@ -77,6 +77,7 @@ export const App: React.FC = () => {
                     </div>
 
                     {/* Start/Stop Section */}
+
                     {!peer.started ? (
                         <div className="text-center">
                             <button
@@ -136,7 +137,7 @@ export const App: React.FC = () => {
                                     <p className="text-gray-500 text-center py-4">Waiting for connections...</p>
                                 ) : (
                                     <div className="space-y-2">
-                                        {connection.list.map(peerId => (
+                                        {connection.list.map((peerId : any) => (
                                             <button
                                                 key={peerId}
                                                 onClick={() => dispatch(connectionAction.selectItem(peerId))}
